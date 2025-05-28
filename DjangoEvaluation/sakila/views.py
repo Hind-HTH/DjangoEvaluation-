@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
-from .models import Country, City, Actor, Film, User
+from .models import Country, City
 from django.db.models import Q
 from django.contrib import messages
 
