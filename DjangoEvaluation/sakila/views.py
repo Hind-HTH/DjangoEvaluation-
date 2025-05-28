@@ -23,5 +23,18 @@ def countries(request):
     return render(request, 'countries.html', {'countries': countries_list})
 
 def city(request):
-    cities_list = City.objects.all()
-    return render(request, 'city.html', {'cities': cities_list})
+    only_capitals = request.GET.get('capitales') == 'true'
+    if only_capitals:
+        cities_list = City.objects.filter(is_capital=True)
+    else:
+        cities_list = City.objects.all()
+    return render(request, 'city.html', {
+        'cities': cities_list,
+        'only_capitals': only_capitals,
+    })
+
+
+def city_detail(request, city_id):
+    city = City.objects.get(id=city_id)
+    return render(request, 'city_detail.html', {'city': city})
+

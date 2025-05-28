@@ -92,11 +92,10 @@
     </div>
 
     <ul>
-        {% for country in countries %}
-            <li>{{ country.country }}</li>
-        {% empty %}
-            <li class="no-results">Aucun pays trouvé.</li>
-        {% endfor %}
+
+        {% for city in cities %}
+    <li>{{ city }}</a></li>
+{% endfor %}
     </ul>
 
     <div class="back-button">
@@ -107,3 +106,4 @@
 </body>
 
 </html>
+
