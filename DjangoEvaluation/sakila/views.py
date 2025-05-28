@@ -34,6 +34,6 @@ def city(request):
 
 
 def city_detail(request, city_id):
-    city = City.objects.get(id=city_id)
+    city = City.objects.get(city_id=city_id)
     return render(request, 'city_detail.html', {'city': city})
 

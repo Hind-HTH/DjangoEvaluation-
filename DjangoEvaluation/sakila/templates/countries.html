@@ -82,7 +82,7 @@
     </div>
     <ul>
       {% for country in countries %}
-      <li>{{ country.country }}</li>
+      <li>{{country.country_id}} {{ country.country }}</li>
       {% empty %}
       <li class="no-results">Aucune ville trouvée.</li>
       {% endfor %}
