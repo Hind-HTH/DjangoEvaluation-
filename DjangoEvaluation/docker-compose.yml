@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+          - backend
+  
+  mysql_db:
+    container_name: mysql_db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Hitema2025
+      MYSQL_DATABASE: sakila
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../sakila-schema.sql:/docker-entrypoint-initdb.d/sakila-schema.sql
+      - ../sakila-data.sql:/docker-entrypoint-initdb.d/sakila-data.sql
+      - mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+volumes:
+  mysql_data:
