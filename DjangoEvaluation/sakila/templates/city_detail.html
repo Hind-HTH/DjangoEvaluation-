@@ -7,7 +7,7 @@
 <body>
     <h1>Liste des Villes {% if only_capitals %}(Capitales uniquement){% endif %}</h1>
 
-    <h1>{{ city.name }}</h1>
+    <h1>{{ city }}</h1>
 
 {% if city.image %}
   <img src="{{ city.image.url }}" alt="Photo de {{ city.name }}" width="400">
