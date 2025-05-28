@@ -13,8 +13,7 @@ from django.contrib import messages
 def status(request):
 
     h = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    cname ='Hind'
-    return render(request, 'banniere.html', {'hours': h, 'cname': cname})
+    return render(request, 'banniere.html', {'hours': h})
 
 
 
