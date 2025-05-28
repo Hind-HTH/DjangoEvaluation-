@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liste des Villes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 400px;
+            border-top: 1px solid #ddd;
+        }
+
+        ul li {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .no-results {
+            color: #d32f2f;
+            font-style: italic;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .back-button button {
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Liste des Villes</h1>
+     <div class="back-button">
+        <a href="{% url 'banniere' %}">
+            <button>Retour à l'accueil</button>
+        </a>
+    </div>
+    <ul>
+        {% for city in cities %}
+            <li>{{ city.city }}</li>
+        {% empty %}
+            <li class="no-results">Aucune ville trouvée.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="back-button">
+        <a href="{% url 'banniere' %}">
+            <button>Retour à l'accueil</button>
+        </a>
+    </div>
+</body>
+
+</html>

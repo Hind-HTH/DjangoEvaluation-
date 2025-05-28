@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'DjangoEvaluation.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sakila', # Nom de ta base de données MySQL
         'USER': 'root', # Ton utilisateur MySQL
         'PASSWORD': 'Hitema2025', # Ton mot de passe

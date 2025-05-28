@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liste des Pays</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 450px;
+            border-top: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+            background-color: #fff;
+        }
+
+        ul li {
+            padding: 12px 18px;
+            border-bottom: 1px solid #ccc;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        ul li:hover {
+            background-color: #f0f6fc;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .no-results {
+            color: #e74c3c;
+            font-style: italic;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .back-button button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 3px 7px rgba(41, 128, 185, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #1f6391;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Liste des Pays</h1>
+
+    <div class="back-button">
+        <a href="{% url 'banniere' %}">
+            <button>Retour à l'accueil</button>
+        </a>
+    </div>
+
+    <ul>
+        {% for country in countries %}
+            <li>{{ country.country }}</li>
+        {% empty %}
+            <li class="no-results">Aucun pays trouvé.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="back-button">
+        <a href="{% url 'banniere' %}">
+            <button>Retour à l'accueil</button>
+        </a>
+    </div>
+</body>
+
+</html>
